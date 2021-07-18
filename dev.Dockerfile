@@ -1,7 +1,7 @@
 FROM php:7-fpm
 
 RUN apt-get -y update && \
-  apt-get -y install git
+  apt-get -y install git zip unzip
 
 RUN docker-php-ext-install pdo_mysql
 
