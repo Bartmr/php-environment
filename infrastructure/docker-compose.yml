@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  web:
+    image: nginx:1.21
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ../src/public:/var/www/html/src/public
+  php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/var/www/html
+  mysql:
+    image: mysql:8
+    volumes:
+        - mysqldata:/var/lib/mysql
+    ports:
+        - 3306:3306
+
+volumes:
+  mysqldata: {}
