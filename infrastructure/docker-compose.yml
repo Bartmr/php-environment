@@ -14,12 +14,3 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../:/var/www/html
-  mysql:
-    image: mysql:8
-    volumes:
-        - mysqldata:/var/lib/mysql
-    ports:
-        - 3306:3306
-
-volumes:
-  mysqldata: {}
